@@ -36,7 +36,7 @@ class Server():
     def wait_for_connection(self):
         while True:
             con = clientsocket,addr = self.s.accept()
-            t = Thread(target=self.client_connection(self,con))
+            t = Thread(target=self.client_connection, args=(con))
             t.daemon = True
             t.start()
 
@@ -45,9 +45,19 @@ class Server():
     def client_connection(self, clientsocket, addr):
         #make not while true
         while True:
-            clientsocket.send("AAA".encode())
-            clientsocket.recv(1024).decode()
 
+            try:
+                clientsocket.send("AAA".encode())
+            except Exception as e:
+                print(e)
+                break
+
+            try:
+                data_in = str(clientsocket.recv(1024).decode())
+                print(data_in)
+            except Exception as e:
+                print(e)
+                break
 
 server = Server(port=6624)
 
