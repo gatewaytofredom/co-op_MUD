@@ -1,8 +1,12 @@
-
+import socket
 class Client:
 
     def connect_to_server(self,ip,port,username,password):
-        pass
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server_address = (ip,port)
+        print('connecting to {} port {}'.format(*self.server_address))
+        self.sock.connect(self.server_address)
+        self.sock.send("gucci".encode())
 
     def send(self,data):
         pass
@@ -34,9 +38,8 @@ def pre_connection(client):
         try:
             client.connect_to_server(ip,port,usr,password)
             server_connected = True
-        except:
-            print('sucks to suck, server responses dont exist')
-
+        except Exception as e:
+            print(e)
     
 
 
