@@ -6,7 +6,11 @@ class Client:
         self.server_address = (ip,port)
         print('connecting to {} port {}'.format(*self.server_address))
         self.sock.connect(self.server_address)
-        self.sock.send("gucci".encode())
+        while True:
+            self.sock.send("gucci".encode())
+            a = str(self.sock.recv(1024).decode())
+            print(a)
+            self.sock.send("gang".encode())
 
     def send(self,data):
         pass
