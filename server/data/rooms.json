@@ -1,0 +1,19 @@
+{
+    "Room1": {
+        "name": "The Cold Room",
+        "description": {
+            "default": "It's cold in here.",
+            "post-fire": "It's wet in here."
+        },
+        "edges": {
+            "default": {}
+        },
+        "inventory": {
+            "default": ["stick"],
+            "post-fire": ["water", "soaked-parchment"]
+        },
+        "params": {
+            "temperature": 38
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "go": ["go", "walk"],
+    "use": ["use"],
+    "open": ["open"],
+    "attack": ["stab", "swing"]
+}
